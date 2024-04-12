@@ -1,0 +1,15 @@
+chromadb
+chroma
+transformers
+torch==2.2.1
+numpy
+sentence-transformers
+accelerate
+langchain
+langchain-community
+langchain_core
+pypdf
+bitsandbytes
+langchainhub
+llama-cpp-python
+huggingface_hub
