@@ -13,3 +13,7 @@ bitsandbytes
 langchainhub
 llama-cpp-python
 huggingface_hub
+llama_parse
+unstructured
+markdown
+fastembed

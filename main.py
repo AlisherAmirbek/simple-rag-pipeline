@@ -4,9 +4,8 @@ import os
 
 def main():
     
-    model = "phi-2"
-    repo_id = "TheBloke/phi-2-GGUF"
-    file_name = "phi-2.Q8_0.gguf"
+    repo_id = "TheBloke/Mistral-7B-Instruct-v0.2-GGUF"
+    file_name = "mistral-7b-instruct-v0.2.Q4_K_M.gguf"
 
     model_path = download_file(repo_id, file_name)
 
