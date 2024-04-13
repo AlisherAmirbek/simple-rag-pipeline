@@ -8,7 +8,10 @@ from langchain_groq import ChatGroq
 
 def setup_rag_pipeline(model_path):
 
-    vs, embed_model = create_vector_database()
+    directory = "chroma_db_llamaparse1"
+    collection_name = "maintenance_report"
+    docs = "data/Long Term Maintenance Report.pdf"
+    vs, embed_model = create_vector_database(directory, collection_name, docs)
 
     chat_model = ChatGroq(temperature=0,
                         model_name="mixtral-8x7b-32768",

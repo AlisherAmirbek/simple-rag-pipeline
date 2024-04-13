@@ -3,9 +3,10 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import UnstructuredMarkdownLoader
 from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 from langchain_community.vectorstores import Chroma
+import time
 
 
-def create_vector_database():
+def create_vector_database(directory, collection_name, docs):
     """
     Creates a vector database using document loaders and embeddings.
 
@@ -40,12 +41,16 @@ def create_vector_database():
 
     # Create and persist a Chroma vector database from the chunked documents
     print("Vector DB initialized")
+    start_time = time.time()
     vs = Chroma.from_documents(
         documents=docs,
         embedding=embed_model,
         persist_directory="chroma_db_llamaparse1",  # Local mode with in-memory storage only
-        collection_name="rag"
+        collection_name="maintenance_report"
     )
+    end_time = time.time()
+    print(f"Time taken to initialize the vector database: {end_time - start_time} seconds")
+
     #query it
     #query = "what is the agend of Financial Statements for 2022 ?"
     #found_doc = qdrant.similarity_search(query, k=3)
