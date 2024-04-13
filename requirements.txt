@@ -17,3 +17,5 @@ llama_parse
 unstructured
 markdown
 fastembed
+langchain-groq
+infinity_emb[torch,optimum]

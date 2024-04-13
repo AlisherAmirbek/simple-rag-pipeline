@@ -39,13 +39,13 @@ def create_vector_database():
     embed_model = FastEmbedEmbeddings(model_name="BAAI/bge-base-en-v1.5")
 
     # Create and persist a Chroma vector database from the chunked documents
+    print("Vector DB initialized")
     vs = Chroma.from_documents(
         documents=docs,
         embedding=embed_model,
         persist_directory="chroma_db_llamaparse1",  # Local mode with in-memory storage only
         collection_name="rag"
     )
-
     #query it
     #query = "what is the agend of Financial Statements for 2022 ?"
     #found_doc = qdrant.similarity_search(query, k=3)

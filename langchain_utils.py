@@ -3,17 +3,16 @@ from vectorstore_utils import create_vector_database
 from langchain_community.vectorstores import Chroma
 from langchain_community.llms import LlamaCpp
 from langchain.prompts import PromptTemplate
+from groq import Groq
+from langchain_groq import ChatGroq
 
 def setup_rag_pipeline(model_path):
 
     vs, embed_model = create_vector_database()
 
-    llm = LlamaCpp(
-        model_path=model_path,
-        n_gpu_layers=-1,
-        n_ctx=8196,
-        verbose=False,
-    )
+    chat_model = ChatGroq(temperature=0,
+                        model_name="mixtral-8x7b-32768",
+                        api_key="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")
 
     vectorstore = Chroma(embedding_function=embed_model,
                         persist_directory="chroma_db_llamaparse1",
@@ -25,7 +24,7 @@ def setup_rag_pipeline(model_path):
     {context}
     Question: {question}
     [/INST]"""
-    prompt = PromptTemplate(template=custom_prompt_template,
+    prompt = PromptTemplate(template=prompt_template,
                             input_variables=['context', 'question'])
 
     qa = RetrievalQA.from_chain_type(llm=chat_model,
