@@ -2,9 +2,6 @@ from langchain_utils import setup_rag_pipeline, ask_question
 from download_utils import download_file
 import os
 
-os.environ['FORCE_CMAKE'] = '1'
-os.environ['CMAKE_ARGS'] = '-DLLAMA_CUDA=ON'
-
 def main():
     
     repo_id = "TheBloke/Mistral-7B-Instruct-v0.2-GGUF"

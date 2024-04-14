@@ -10,8 +10,9 @@ def initialize_models(model_path):
         model_path=model_path,
         n_gpu_layers=-1,
         n_batch=32,
-        verbose=True,
-        n_ctx = 8192,
+        n_ctx=8192,
+        max_tokens=8192,
+        verbose=False
     )
     '''chat_model = ChatGroq(temperature=0,
                         model_name="mixtral-8x7b-32768",
