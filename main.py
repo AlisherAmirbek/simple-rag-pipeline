@@ -1,5 +1,5 @@
-from langchain_utils import setup_rag_pipeline, ask_question
-from download_utils import download_file
+from utils.langchain_utils import setup_rag_pipeline, ask_question
+from utils.download_utils import download_file
 import os
 
 def main():
