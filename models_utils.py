@@ -14,15 +14,13 @@ def initialize_models(model_path):
         max_tokens=8192,
         verbose=False
     )
-    '''chat_model = ChatGroq(temperature=0,
-                        model_name="mixtral-8x7b-32768",
-                        api_key="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")'''
     print("LanguageModel initialized")
 
     prompt_template = """<s>[INST] Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer. Write as concise and clear as possible.
     Context: {context}
     Question: {question}
     [/INST]"""
+    
     prompt = PromptTemplate(template=prompt_template,
                             input_variables=['context', 'question'])
 
