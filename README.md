@@ -1,35 +1,35 @@
 # Simple Retrieval Augmented Generation (RAG) Pipeline
 
-### Компоненты
-- **ChromaDB**: используется в качестве векторного хранилища для эффективного извлечения контекста.
-- **Mistral 7B**: LLM, используемая для генерации текста на основе контекста, предоставляемого ChromaDB.
-- **BGE-Small-EN-v1.5**: Embeddings модель
+### Components
+- **ChromaDB**: Used as vector storage for efficient context retrieval.
+- **Mistral 7B**: LLM used to generate text based on the context provided by ChromaDB.
+- **BGE-Small-EN-v1.5**: Embeddings model
 
-## Инструкции по настройке
+## Setup instructions
 
-### Предварительные
-- Питон 3.8 или выше
+### Preliminary
+- Python 3.8 or higher
 - pip
-- Доступ к вычислительным ресурсам, способным запускать модели глубокого обучения (желательно с поддержкой CUDA для ускорения графического процессора).
+- Access to compute resources capable of running deep learning models (preferably with CUDA support for GPU acceleration).
+  
+### Installation
+1. **Clone the repository**
+      ```bash
+      git clone https://github.com/AlisherAmirbek/simple-rag-pipeline.git
+      CD simple-rag-pipeline
+      ```
+2. **Activate the virtual environment in python**
+2. **Install Python dependencies**
+      ```bash
+      pip install -r requirements.txt
+      ```
+3. **Set environment variables** (GPU only)
+      ```bash
+      CMAKE_ARGS="-DLLAMA_CUDA=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir --verbose
+      ```
+      
+## Usage
 
-### Монтаж
-1. **Клонируйте репозиторий**
-     ``` bash
-     git clone https://github.com/AlisherAmirbek/simple-rag-pipeline.git
-     CD simple-rag-pipeline
-     ```
-2. **Активируйте виртуальную среду в python**
-2. **Установить зависимости Python**
-     ``` bash
-     pip install -r requirements.txt
-     ```
-3. **Установите переменные среды** (только для работы с GPU)
-     ``` bash
-     CMAKE_ARGS="-DLLAMA_CUDA=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir --verbose
-     ```
-
-## Использование
-
-Чтобы запустить пайплайн RAG, перейдите в корневой каталог проекта и выполните:
-``` bash
+To run the RAG pipeline, go to the project root directory and run:
+```bash
 python main.py
